@@ -1,26 +1,54 @@
 /* Гурьевских В.Г.
-
-(Task1) Написать программу, которая определяет, является ли введенная скобочная последовательность правильной.
+(Task1) Реализовать перевод из 10 в 2 систему счисления с использованием стека.
+(Task2) Написать программу, которая определяет, является ли введенная скобочная последовательность правильной.
 
  */
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Scanner;
 
 public class MainClass {
 
     public static void main(String[] args) {
-        //Определение, является ли введенная скобочная последовательность правильной.
-        try {
-            Task1();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+        //Перевод из 10 в 2 систему счисления с использованием стека.
+        Task1();
+//        //Определение, является ли введенная скобочная последовательность правильной.
+//        try {
+//            Task2();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+    }
+
+    //Перевод из 10 в 2 систему счисления с использованием стека.
+    private static void Task1() {
+
+        Scanner scr = new Scanner(System.in);
+        System.out.println("Enter number in decimal format:");
+        int number = scr.nextInt();
+        converToBinaryFormat(number);
+
+    }
+
+    private static void converToBinaryFormat(int number) {
+        int tecNumber = number;
+
+        //Стек реализован в отдельном классе.
+        MyStack stack = new MyStack();
+
+        do {
+            stack.push(number%2);
+            number = number/2;
+        }while(number > 0);
+        System.out.println(Short.MAX_VALUE);
+        System.out.println("Decimal format: " + tecNumber + ", bunary format: " + stack.toString());
     }
 
     //+ Определение, является ли введенная скобочная последовательность правильной.
-    private static void Task1() throws IOException {
+    private static void Task2() throws IOException {
         char[] arrOpen = new char[]{'(', '[', '{'};
         char[] arrClose = new char[]{')', ']', '}'};
 
@@ -91,6 +119,5 @@ public class MainClass {
         return false;
     }//- Определение, является ли введенная скобочная последовательность правильной.
 
-
-
 }
+
