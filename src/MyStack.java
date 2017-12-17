@@ -9,6 +9,12 @@ public class MyStack {
         index = 0;
     }
 
+    public void clear(){
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = 0;
+        }
+    }
+
     public boolean find(int x){
         if (index == 0) return false;
         for (int i = 0; i < arr.length; i++) {
@@ -17,10 +23,12 @@ public class MyStack {
         return false;
     }
 
-    public void pop(){
+    public int pop(){
+        int x = arr[index];
         if (index > 0){
             index--;
         }
+        return x;
     }
 
     public void push(int x){

@@ -1,6 +1,7 @@
 /* Гурьевских В.Г.
 (Task1) Реализовать перевод из 10 в 2 систему счисления с использованием стека.
 (Task2) Написать программу, которая определяет, является ли введенная скобочная последовательность правильной.
+(Task3) Реализовать очередь.
 
  */
 
@@ -15,12 +16,39 @@ public class MainClass {
 
         //Перевод из 10 в 2 систему счисления с использованием стека.
         Task1();
-//        //Определение, является ли введенная скобочная последовательность правильной.
-//        try {
-//            Task2();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+
+        //Определение, является ли введенная скобочная последовательность правильной.
+        try {
+            Task2();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        //Реализовать очередь.
+        Task3();
+    }
+
+    //Реализовать очередь.
+    private static void Task3() {
+        MyQueue queue = new MyQueue();
+        System.out.println("Push in queue: 10, 20, 30, 40");
+        queue.push(10);
+        queue.push(20);
+        queue.push(30);
+        queue.push(40);
+        System.out.println("Take from queue:");
+        System.out.print(queue.pop());
+        System.out.print("," + queue.pop());
+        System.out.print("," + queue.pop());
+        System.out.print("," + queue.pop());
+        System.out.println("," + queue.pop());
+        System.out.println("Push in queue: 30, 40");
+        queue.push(30);
+        queue.push(40);
+        System.out.println("Take from queue:");
+        System.out.print(queue.pop());
+        System.out.print("," + queue.pop());
+
     }
 
     //Перевод из 10 в 2 систему счисления с использованием стека.
